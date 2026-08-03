@@ -1,0 +1,14 @@
+# Netlify deploy config for the Expo (web) portfolio.
+# If you connect this repo to Netlify for auto-deploys, it uses the settings below.
+# For manual drag-and-drop deploys, just drop the generated `dist` folder instead.
+
+[build]
+  command = "npx expo export --platform web"
+  publish = "dist"
+
+# Each screen is exported as its own static HTML page (skills.html, projects.html, ...),
+# so normal pages serve directly. Only unknown URLs fall back to Expo's not-found page.
+[[redirects]]
+  from = "/*"
+  to = "/+not-found.html"
+  status = 404
