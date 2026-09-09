@@ -52,6 +52,7 @@ export default function About() {
       {/* Quick actions */}
       <View style={styles.actions}>
         <LinkButton icon="logo-linkedin" label="LinkedIn" primary onPress={() => openURL(profile.linkedin)} />
+        <LinkButton icon="logo-github" label="GitHub" onPress={() => openURL(profile.github)} />
         <LinkButton icon="mail-outline" label="Email" onPress={() => openURL(`mailto:${profile.email}`)} />
       </View>
 
@@ -114,7 +115,7 @@ const styles = StyleSheet.create({
   stat: { flex: 1, alignItems: 'center', paddingVertical: 16 },
   statValue: { fontSize: 22, fontWeight: '800' },
   statLabel: { fontSize: 11.5, marginTop: 3, textAlign: 'center' },
-  actions: { flexDirection: 'row', gap: 10, marginTop: 6 },
+  actions: { flexDirection: 'row', flexWrap: 'wrap', gap: 10, marginTop: 6 },
   summary: { fontSize: 14.5, lineHeight: 22 },
   eduDegree: { fontSize: 15, fontWeight: '700' },
   eduInst: { fontSize: 13, marginTop: 3 },

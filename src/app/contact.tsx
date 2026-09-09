@@ -43,6 +43,8 @@ export default function Contact() {
         <ContactRow icon="call-outline" label="Phone" value={profile.phone} onPress={() => openURL(`tel:${profile.phone.replace(/\s/g, '')}`)} />
         <View style={[styles.divider, { backgroundColor: t.border }]} />
         <ContactRow icon="logo-linkedin" label="LinkedIn" value={profile.linkedinLabel} onPress={() => openURL(profile.linkedin)} />
+        <View style={[styles.divider, { backgroundColor: t.border }]} />
+        <ContactRow icon="logo-github" label="GitHub" value={profile.githubLabel} onPress={() => openURL(profile.github)} />
       </Card>
 
       <SectionTitle icon="ribbon-outline">Certifications</SectionTitle>

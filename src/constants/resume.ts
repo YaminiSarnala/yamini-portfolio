@@ -19,6 +19,9 @@ export const profile = {
   email: 'yaminisarnala@gmail.com',
   linkedin: 'https://www.linkedin.com/in/yamini-sarnala-460675208',
   linkedinLabel: 'linkedin.com/in/yamini-sarnala',
+  // TODO: replace with the real GitHub username — this is a placeholder.
+  github: 'https://github.com/yaminisarnala',
+  githubLabel: 'github.com/yaminisarnala',
 };
 
 export const highlights = [
@@ -99,6 +102,12 @@ export type Project = {
   blurb: string;
   tech: string[];
   features: string[];
+  /**
+   * Optional Play Store listing. When set, the project card becomes tappable and
+   * shows a "View on Google Play" button. Projects without a public listing
+   * simply render as a normal card.
+   */
+  playStoreUrl?: string;
 };
 
 export const projects: Project[] = [
@@ -116,9 +125,10 @@ export const projects: Project[] = [
       'Payment gateway integration',
       'Push notifications',
     ],
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.thewoverse.mobile',
   },
   {
-    name: 'Automotive CRM',
+    name: 'Automotive CRM Cyepro',
     role: 'Car Sales Workflow · Mobile + Back-end',
     blurb:
       'A mobile CRM that digitizes the full car sales workflow from lead capture to ' +
@@ -131,6 +141,7 @@ export const projects: Project[] = [
       'Push notifications',
       'Bulk upload module',
     ],
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.b2b_new_theme',
   },
 ];
 
