@@ -19,9 +19,8 @@ export const profile = {
   email: 'yaminisarnala@gmail.com',
   linkedin: 'https://www.linkedin.com/in/yamini-sarnala-460675208',
   linkedinLabel: 'linkedin.com/in/yamini-sarnala',
-  // TODO: replace with the real GitHub username — this is a placeholder.
-  github: 'https://github.com/yaminisarnala',
-  githubLabel: 'github.com/yaminisarnala',
+  github: 'https://github.com/YaminiSarnala',
+  githubLabel: 'github.com/YaminiSarnala',
 };
 
 export const highlights = [
@@ -103,11 +102,13 @@ export type Project = {
   tech: string[];
   features: string[];
   /**
-   * Optional Play Store listing. When set, the project card becomes tappable and
-   * shows a "View on Google Play" button. Projects without a public listing
-   * simply render as a normal card.
+   * Public store listings. Either may be omitted — not every app ships on both
+   * platforms. The Projects screen picks the one matching the viewer's device
+   * (App Store on iOS, Play Store elsewhere) and falls back to the other if the
+   * native one doesn't exist, so the button label always matches where it goes.
    */
   playStoreUrl?: string;
+  appStoreUrl?: string;
 };
 
 export const projects: Project[] = [
@@ -126,6 +127,8 @@ export const projects: Project[] = [
       'Push notifications',
     ],
     playStoreUrl: 'https://play.google.com/store/apps/details?id=com.thewoverse.mobile',
+    // No iOS listing found for WoVerse — every EAS production build was Android.
+    // If an App Store version ships, add: appStoreUrl: 'https://apps.apple.com/...'
   },
   {
     name: 'Automotive CRM Cyepro',
@@ -142,6 +145,7 @@ export const projects: Project[] = [
       'Bulk upload module',
     ],
     playStoreUrl: 'https://play.google.com/store/apps/details?id=com.b2b_new_theme',
+    appStoreUrl: 'https://apps.apple.com/us/app/cyepro/id1635723670',
   },
 ];
 
