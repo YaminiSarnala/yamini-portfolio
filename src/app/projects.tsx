@@ -36,6 +36,7 @@ function ProjectCard({ project }: { project: Project }) {
   // cannot install from — and it signals the iOS build is in progress.
   const iosPending =
     Platform.OS === 'ios' && !project.appStoreUrl && !!project.playStoreUrl;
+  const building = !!project.inDevelopment;
 
   const body = (
     <>
@@ -44,7 +45,14 @@ function ProjectCard({ project }: { project: Project }) {
           <Text style={[styles.name, { color: t.text }]}>{project.name}</Text>
           <Text style={[styles.role, { color: t.accent }]}>{project.role}</Text>
         </View>
-        {store ? <Ionicons name="open-outline" size={18} color={t.muted} /> : null}
+        {building ? (
+          <View style={[styles.devBadge, { backgroundColor: t.accentSoft }]}>
+            <Ionicons name="construct-outline" size={12} color={t.accent} />
+            <Text style={[styles.devBadgeText, { color: t.accent }]}>In development</Text>
+          </View>
+        ) : store ? (
+          <Ionicons name="open-outline" size={18} color={t.muted} />
+        ) : null}
       </View>
 
       <Text style={[styles.blurb, { color: t.muted }]}>{project.blurb}</Text>
@@ -73,7 +81,14 @@ function ProjectCard({ project }: { project: Project }) {
         </View>
       ) : null}
 
-      {store ? (
+      {building ? (
+        <View style={[styles.storeBtn, { borderWidth: 1, borderColor: t.border, borderStyle: 'dashed' }]}>
+          <Ionicons name="hourglass-outline" size={16} color={t.muted} />
+          <Text style={[styles.storeBtnText, { color: t.muted }]}>Currently under development</Text>
+        </View>
+      ) : null}
+
+      {store && !building ? (
         <View
           style={[
             styles.storeBtn,
@@ -90,7 +105,7 @@ function ProjectCard({ project }: { project: Project }) {
     </>
   );
 
-  if (!store) {
+  if (!store || building) {
     return <Card>{body}</Card>;
   }
 
@@ -144,5 +159,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderRadius: 999,
   },
+  devBadge: { flexDirection: 'row', alignItems: 'center', gap: 4, paddingHorizontal: 9, paddingVertical: 4, borderRadius: 999 },
+  devBadgeText: { fontSize: 11, fontWeight: '800' },
   comingSoonText: { fontSize: 12.5, fontWeight: '700' },
 });
