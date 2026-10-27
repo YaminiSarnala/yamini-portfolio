@@ -115,6 +115,22 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    name: 'CrewNBuild',
+    role: 'Construction Project Marketplace · Mobile',
+    blurb:
+      'A construction platform where home owners plan projects, hire builders and site ' +
+      'engineers, buy materials, and follow progress on site — all from their phone.',
+    tech: ['React Native', 'Expo', 'Redux Toolkit', 'React Navigation', 'Axios'],
+    features: [
+      'Owner project creation and management',
+      'Find, compare, negotiate with and award builders',
+      'Materials marketplace with cart and orders',
+      'Site photo calendar and live CCTV cameras',
+      'Chat, notifications, multi-language and dark mode',
+    ],
+    inDevelopment: true,
+  },
+  {
     name: 'TapCure',
     role: 'Clinic Booking & Live OP Queue · Mobile',
     blurb:
@@ -130,22 +146,6 @@ export const projects: Project[] = [
       'Phone and iPad layouts',
     ],
     playStoreUrl: 'https://play.google.com/store/apps/details?id=com.tryovate.tapcure',
-  },
-  {
-    name: 'CrewNBuild',
-    role: 'Construction Project Marketplace · Mobile',
-    blurb:
-      'A construction platform where home owners plan projects, hire builders and site ' +
-      'engineers, buy materials, and follow progress on site — all from their phone.',
-    tech: ['React Native', 'Expo', 'Redux Toolkit', 'React Navigation', 'Axios'],
-    features: [
-      'Owner project creation and management',
-      'Find, compare, negotiate with and award builders',
-      'Materials marketplace with cart and orders',
-      'Site photo calendar and live CCTV cameras',
-      'Chat, notifications, multi-language and dark mode',
-    ],
-    inDevelopment: true,
   },
   {
     name: 'WoVerse',
